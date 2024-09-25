@@ -2,6 +2,7 @@ package seedu.address.model.person;
 
 import static java.util.Objects.requireNonNull;
 
+//CHECKSTYLE OFF: MissingJavadocType
 public class Remark {
 
 
@@ -20,7 +21,6 @@ public class Remark {
     /**
      * Returns true if a given string is a valid email.
      */
-
     @Override
     public String toString() {
         return value;
