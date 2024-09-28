@@ -10,6 +10,7 @@ import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
+import seedu.address.model.person.Remark;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -23,9 +24,11 @@ public class EditPersonDescriptorBuilder {
         descriptor = new EditPersonDescriptor();
     }
 
+    // CHECKSTYLE OFF: MissingJavadocMethod
     public EditPersonDescriptorBuilder(EditPersonDescriptor descriptor) {
         this.descriptor = new EditPersonDescriptor(descriptor);
     }
+    // CHECKSTYLE ON: MissingJavadocMethod
 
     /**
      * Returns an {@code EditPersonDescriptor} with fields containing {@code person}'s details
@@ -37,6 +40,7 @@ public class EditPersonDescriptorBuilder {
         descriptor.setEmail(person.getEmail());
         descriptor.setAddress(person.getAddress());
         descriptor.setTags(person.getTags());
+        descriptor.setRemark(person.getRemark());
     }
 
     /**
@@ -72,12 +76,20 @@ public class EditPersonDescriptorBuilder {
     }
 
     /**
-     * Parses the {@code tags} into a {@code Set<Tag>} and set it to the {@code EditPersonDescriptor}
-     * that we are building.
+     * Parses the {@code tags} of the {@code EditPersonDescriptor} that we are building.
      */
     public EditPersonDescriptorBuilder withTags(String... tags) {
         Set<Tag> tagSet = Stream.of(tags).map(Tag::new).collect(Collectors.toSet());
         descriptor.setTags(tagSet);
+        return this;
+    }
+
+    /**
+     * Parses the {@code Remark} into a {@code Set<Tag>} and set it to the {@code EditPersonDescriptor}
+     * that we are building.
+     */
+    public EditPersonDescriptorBuilder withRemark(String remark) {
+        descriptor.setRemark(new Remark(remark));
         return this;
     }
 
